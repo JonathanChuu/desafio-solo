@@ -1,0 +1,100 @@
+<!DOCTYPE hthml>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>paginaSolo</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="text/babel">
+        const rootElement = document.getElementById('root')
+
+        // const Message = ({ prefix, conteudo }) => ( 
+        //     <>
+        //     <div className = 'message'> { prefix } </div>
+        //     <div> {conteudo} </div>
+        //     </>
+        //     )
+
+        const Header = () => (
+            <div>
+                <div className="p-[24px] relative flex flex-wrap justify-between lg:justify-between">
+                    <div className="text-[#F2fa5a] text-3xl font-bold">
+                        <p>CONTACTS</p>
+                    </div>
+
+                    <div className="w-auto">
+                        <button type="button" className="h-10 w-64 rounded-full bg-[#F2fa5a] text-xl font-bold [color: rgb(255, 225, 0)] hover:text-white hover:bg-gray-600">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )
+
+        const CardContacts = ({ imgURL, contactName, contactTitle }) => (
+            <div className="bg-[#56BBF1] w-full h-24 rounded-[10px] flex">
+                <div className="mx-[24px] my-[8px] flex justify-between w-full">
+                    <div className="flex flex-initial">
+                        <div className="min-h-full w-20 flex">
+                            <img className="rounded-full" src={imgURL}></img>
+                        </div>
+
+                        <div className="mx-[24px] flex flex-col justify-center">
+                            <h1 className="text-xl text-[#F1E1A6] font-bold"> {contactName} </h1>
+                            <h2 className="text-base text-[#F4BBBB] font-bold"> {contactTitle} </h2>
+                        </div>
+                    </div>
+
+
+                    <div className="flex flex-auto justify-end">
+                        <div className="flex border-gray-200 items-center gap-2">
+                            <button className="p-[9px] bg-cyan-400 rounded-[10px] text-[#F2fa5a] hover:bg-cyan-200">Call</button>
+                            <button className="p-[9px] bg-cyan-400 rounded-[10px] text-[#F2fa5a] hover:bg-cyan-200">Send-email</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+
+        const Main = ({ children }) => (
+
+            <div className="mx-[24px]">
+                <div className="flex flex-col gap-y-6">
+                    {children}
+                </div>
+
+                <div className="mt-1">
+                    <p className="text-[#F2fa5a] font-bold"> We found 23 contacts </p>
+                </div>
+
+            </div>
+        )
+
+
+        const element = (
+            <div className='min-h-full bg-[#4d77ff]'>
+                <Header></Header>
+                <Main>
+                    <CardContacts contactName="Tom James" contactTitle="Programmer" imgURL="https://i.discogs.com/5LciSepviOu-qkDowikewwQrQThx92REEcjSjPcYbCE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTExMjQ2/NDUtMTYzNjkzOTc5/Mi02NzIzLmpwZWc.jpeg" />
+                    <CardContacts contactName="Alessa Smith" contactTitle="Manager" imgURL="https://i.discogs.com/5LciSepviOu-qkDowikewwQrQThx92REEcjSjPcYbCE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTExMjQ2/NDUtMTYzNjkzOTc5/Mi02NzIzLmpwZWc.jpeg" />
+                    <CardContacts contactName="Kate Minard" contactTitle="Web Designer" imgURL="https://i.discogs.com/5LciSepviOu-qkDowikewwQrQThx92REEcjSjPcYbCE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTExMjQ2/NDUtMTYzNjkzOTc5/Mi02NzIzLmpwZWc.jpeg" />
+                    <CardContacts contactName="John Tudor" contactTitle="Database Admin" imgURL="https://i.discogs.com/5LciSepviOu-qkDowikewwQrQThx92REEcjSjPcYbCE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTExMjQ2/NDUtMTYzNjkzOTc5/Mi02NzIzLmpwZWc.jpeg" />
+                </Main>
+            </div>
+
+        )
+
+        ReactDOM.render(element, rootElement)
+
+    </script>
+</body>
+
+</html>
